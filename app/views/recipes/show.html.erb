@@ -1,0 +1,57 @@
+<main >
+  <section class='recipe_details_container' >
+  <h1 class='recipe_food_name'><%= @recipe.name %></h1>
+  <section class='recipe_details'>
+    <div>
+      <p class='recipe_detail'>Preparation time: <%= @recipe.preparation_time %> </p>
+      <p class='recipe_detail'>Cooking time: <%= @recipe.cooking_time %> </p>
+      <p class='recipe_detail'>Steps goes here......</p>
+    </div>
+    <div class='recipe_detail'>
+      <div class=' recipe_detail_right'>
+        <p class='public'>public</p>:
+        <label class="toggle-switch">
+          <input type="checkbox" checked= <% @recipe.public %> >
+          <span class="slider"></span>
+        </label>
+      </div>
+    </div>
+  </section>
+
+  <section class='section_two'>
+    <div class='btn_container'>
+      <button class='btn'>
+        Generate Shopping List
+      </button>
+      <button class='btn'>
+        Add Ingredient
+      </button>
+    </div>
+  </section>
+
+  <section>
+    <table class='table'>
+      <thead>
+        <tr class='table_header'>
+          <th>Food</th>
+          <th>Quantity</th>
+          <th>Value</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @recipe.recipe_foods.each do |recipe_food| %>
+          <tr>
+            <td class=''><%= recipe_food.food.name %></td>
+            <td class=''><%= recipe_food.quantity %></td>
+            <td class=''><%= recipe_food.food.price %></td>
+            <td class='recipe_foods_actions'>
+              <%= link_to 'Modify', edit_recipe_recipe_food_path(recipe_food.id) %>
+              <%= link_to 'Remove', recipe_recipe_foods_path(recipe_food.id), method: :delete %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+  </section>
+  </section>
+</main>
