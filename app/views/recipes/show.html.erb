@@ -2,7 +2,7 @@
   <section class='recipe_details_container' >
   <h1 class='recipe_food_name'><%= @recipe.name %></h1>
   <section class='recipe_details'>
-    <div>
+    <div class='recipe_detail_container'>
       <p class='recipe_detail'>Preparation time: <%= @recipe.preparation_time %> </p>
       <p class='recipe_detail'>Cooking time: <%= @recipe.cooking_time %> </p>
       <p class='recipe_detail'>Steps goes here......</p>
@@ -46,8 +46,10 @@
             <td class=''><%= recipe_food.quantity %></td>
             <td class=''><%= recipe_food.food.price %></td>
             <td class='recipe_foods_actions'>
-              <%= link_to 'Modify', edit_recipe_recipe_food_path(recipe_food.id) %>
-              <%= link_to 'Remove', recipe_recipe_foods_path(recipe_food.id), method: :delete %>
+              <% if can? :destroy, recipe_food.recipe %>
+                <%= link_to 'Modify', edit_recipe_recipe_food_path(recipe_food.id) %>
+                <%= link_to 'Remove', recipe_recipe_foods_path(recipe_food.id), method: :delete %>
+              <% end %>
             </td>
           </tr>
         <% end %>
