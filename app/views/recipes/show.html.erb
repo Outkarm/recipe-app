@@ -11,7 +11,7 @@
       <div class=' recipe_detail_right'>
         <p class='public'>public</p>:
         <label class="toggle-switch">
-          <input type="checkbox" checked= <% @recipe.public %> >
+          <input type="checkbox" checked= <% @recipe.public %>, onChange= >
           <span class="slider"></span>
         </label>
       </div>
@@ -24,7 +24,7 @@
         Generate Shopping List
       </button>
       <button class='btn'>
-        Add Ingredient
+       <%= link_to 'Add Ingredient', new_recipe_recipe_food_path(@recipe.id) %>
       </button>
     </div>
   </section>
