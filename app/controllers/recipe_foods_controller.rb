@@ -11,12 +11,21 @@ class RecipeFoodsController < ApplicationController
     @recipe_food.recipe_id = params[:recipe_id]
     if @recipe_food.save
       flash[:success] = 'Recipe Food created successfully'
-      redirect_to recipe_path(recipe)
+      redirect_to recipe_path(recipe.id)
     else
       flash.now[:error] = "Recipe Food couldn't be created"
-      render :new
+      render 'new'
     end
   end
 
-  private
+  def destroy
+    recipe_food = RecipeFood.find(params[:id])
+    if recipe_food.destroy
+      flash.now[:success] = 'Recipe deleted successfully'
+      redirect_to recipe_path(recipe_food.recipe)
+    else
+      flash.now[:error] = "Recipe couldn't be deleted"
+    end
+  end
+
 end

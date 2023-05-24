@@ -17,7 +17,7 @@ class RecipesController < ApplicationController
     recipe = Recipe.find(params[:id])
     if recipe.destroy
       flash[:success] = 'Recipe deleted successfully'
-      redirect_to recipes_path
+      redirect_to recipe_path(recipe.id)
     else
       flash.now[:error] = "Recipe couldn't be deleted"
     end

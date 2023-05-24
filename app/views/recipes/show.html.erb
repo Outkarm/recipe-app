@@ -23,9 +23,11 @@
       <button class='btn'>
         Generate Shopping List
       </button>
-      <button class='btn'>
-       <%= link_to 'Add Ingredient', new_recipe_recipe_food_path(@recipe.id) %>
-      </button>
+      <% if can? :manage, @recipe %>
+        <button class='btn'>
+        <%= link_to 'Add Ingredient', new_recipe_recipe_food_path(@recipe.id) %>
+        </button>
+      <% end %>
     </div>
   </section>
 
@@ -48,7 +50,7 @@
             <td class='recipe_foods_actions'>
               <% if can? :destroy, recipe_food.recipe %>
                 <%= link_to 'Modify', edit_recipe_recipe_food_path(recipe_food.id) %>
-                <%= link_to 'Remove', recipe_recipe_foods_path(recipe_food.id), method: :delete %>
+                <%= button_to 'Remove', [@recipe, recipe_food], method: :delete %>
               <% end %>
             </td>
           </tr>
