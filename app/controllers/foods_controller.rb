@@ -1,17 +1,26 @@
 class FoodsController < ApplicationController
   before_action :authenticate_user!
-  def index
-    return unless user_signed_in?
 
-    @food = Food.find(params[:user_id])
+  def index
+    @food = Food.all
+
+    if @food.empty?
+      flash[:notice] = "No food available. Please add food."
+    end
   end
 
-  def show; end
+  def new 
+    @food = Food.new
+  end
 
-  def new
-    return unless user_signed_in?
-
+  def create
     @food = Food.new(food_params)
+    @food.user= current_user
+    if @food.save
+      redirect_to foods_path, notice: 'Food item created successfully.'
+    else
+      render :new
+    end
   end
 
   def destroy
