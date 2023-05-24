@@ -4,18 +4,18 @@ class FoodsController < ApplicationController
   def index
     @food = Food.all
 
-    if @food.empty?
-      flash[:notice] = "No food available. Please add food."
-    end
+    return unless @food.empty?
+
+    flash[:notice] = 'No food available. Please add food.'
   end
 
-  def new 
+  def new
     @food = Food.new
   end
 
   def create
     @food = Food.new(food_params)
-    @food.user= current_user
+    @food.user = current_user
     if @food.save
       redirect_to foods_path, notice: 'Food item created successfully.'
     else
