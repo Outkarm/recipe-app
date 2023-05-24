@@ -1,10 +1,7 @@
 class RecipeFoodsController < ApplicationController
+  def index; end
 
-  def index
-  end
-
-  def new
-  end
+  def new; end
 
   def create
     @recipe_food = RecipeFood.new(recipe_food_params)

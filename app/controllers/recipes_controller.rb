@@ -7,9 +7,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find_by(id: params[:id])
   end
 
-  def new
-
-  end
+  def new; end
 
   def create
     @recipe = Recipe.create(recipe_params)
@@ -25,5 +23,4 @@ class RecipesController < ApplicationController
   def recipe_params
     params.require(:recipe).permit(:name, :description, :instructions)
   end
-
 end
