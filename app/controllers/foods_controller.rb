@@ -1,16 +1,14 @@
 class FoodsController < ApplicationController
   before_action :authenticate_user!
   def index
-    @food = Food.all
-  end
-
-  def show
     return unless user_signed_in?
 
     @food = Food.find(params[:user_id])
   end
 
-  def create
+  def show; end
+
+  def new
     return unless user_signed_in?
 
     @food = Food.new(food_params)
