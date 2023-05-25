@@ -1,5 +1,5 @@
 class ShoppingListController < ApplicationController
-  def show
+  def index
     @recipes = current_user.recipes
     @food_items = @recipes.map(&:foods).flatten.uniq
     @general_food_list = current_user.foods
