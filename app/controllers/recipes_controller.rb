@@ -10,7 +10,19 @@ class RecipesController < ApplicationController
   def new; end
 
   def create
-    @recipe = Recipe.create(recipe_params)
+    name = params[:name]
+    cooking_time= params[:cooking_time]
+    description = params[:description]
+    preparation_time = params[:preparation_time]
+    public = params[:public]
+    @recipe = Recipe.create(name: name, cooking_time: cooking_time, description: description, preparation_time: preparation_time, public: public)
+    @recipe.user_id = current_user.id
+    if @recipe.save
+      flash[:success] = "Successfully created..."
+      redirect_to recipes_path
+    else
+      flash.now[:error] = "Recipe could not be created..."
+    end
   end
 
   def destroy
@@ -26,6 +38,6 @@ class RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:name, :description, :instructions)
+    params.require(:recipes).permit(:name, :cooking_time, :preparation_time, :public, :description)
   end
 end

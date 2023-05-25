@@ -11,10 +11,12 @@
       <div class=' recipe_detail_right'>
         <p class='public'>public</p>:
         <label class="toggle-switch">
-          <input type="checkbox" checked= <% @recipe.public %>, onChange= >
+          <input type="checkbox" <%= @recipe.public ? "checked" : "" %>>
           <span class="slider"></span>
         </label>
+
       </div>
+      <%= @recipe.public%>
     </div>
   </section>
 

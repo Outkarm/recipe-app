@@ -18,6 +18,10 @@ body {
   margin: 0;
 }
 
+.application_container {
+  padding: 1rem;
+}
+
 .sign {
   display: flex;
   justify-content: center;
@@ -37,6 +41,7 @@ body {
   padding: 10px;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  width: 100%;
 }
 
 .recipe_name {
@@ -257,10 +262,10 @@ h6 {
   box-sizing: border-box;
 }
 
-.field {
+.fields {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  margin-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
 }
 
 label {
@@ -292,7 +297,12 @@ button {
   list-style: none;
 }
 
-a {
+.sign a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.navigation ul li a {
   text-decoration: none;
   color: #fff;
 }
