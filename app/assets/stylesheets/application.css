@@ -13,6 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+  margin: 0;
+}
+
 .recipes_container {
   display: flex;
   flex-direction: column;
@@ -257,4 +262,30 @@ label {
 
 button {
   cursor: pointer;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 1rem;
+  box-sizing: border-box;
+  color: #fff;
+  background: #2e2222;
+  margin-bottom: 2rem;
+}
+
+.navigation ul {
+  display: flex;
+  gap: 1rem;
+  text-decoration: none;
+}
+
+.navigation ul li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
 }
