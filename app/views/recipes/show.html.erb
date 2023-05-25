@@ -23,7 +23,7 @@
   <section class='section_two'>
     <div class='btn_container'>
       <button class='btn'>
-        Generate Shopping List
+       <%=link_to 'Generate Shopping List',shopping_list_path%> 
       </button>
       <% if can? :manage, @recipe %>
         <button class='btn'>
