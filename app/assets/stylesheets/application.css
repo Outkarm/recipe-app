@@ -13,3 +13,296 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+  margin: 0;
+}
+
+.application_container {
+  padding: 1rem;
+}
+
+.sign {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.recipes_container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem 200px;
+}
+
+.recipe {
+  border: 1px solid #2e2222;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  width: 100%;
+}
+
+.recipe_name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: capitalize;
+  color: #2e2222;
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 25px;
+}
+
+input,
+select {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #2e2222;
+}
+
+.toggle-switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #884949;
+  border-radius: 34px;
+  transition: 0.4s;
+}
+
+.slider::before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #125026;
+}
+
+input:checked + .slider::before {
+  transform: translateX(26px);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  padding: 1rem;
+}
+
+.recipe_details_container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  width: 500px;
+  box-sizing: border-box;
+}
+
+.recipe_food_name {
+  text-transform: capitalize;
+}
+
+.recipe_details {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10rem;
+  align-items: start;
+}
+
+.recipe_left {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.recipe_detail {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  font-size: 20px;
+  text-transform: capitalize;
+  margin-bottom: 1rem;
+}
+
+.recipe_detail_right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.public {
+  display: flex;
+  align-items: center;
+}
+
+.section_two {
+  display: flex;
+  flex-direction: column;
+  gap: 10rem;
+}
+
+.btn_container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 10rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #2e2222;
+}
+
+.recipe_foods_actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  border-left: none;
+  border-top: none;
+}
+
+table {
+  border-collapse: separate;
+  width: 500px;
+}
+
+td,
+th {
+  padding: 8px;
+}
+
+.table_header {
+  background-color: rgb(206, 201, 201);
+}
+
+table tbody tr {
+  /* border-bottom: ; */
+  background: #f3f2f2;
+}
+
+table tbody tr:nth-child(even) {
+  background: white;
+}
+
+.price_count {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+}
+
+.price_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+p,
+h2,
+h6 {
+  margin: 0;
+}
+
+h6 {
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+.public_recipe {
+  border: 1px solid #2e2222;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  width: 600px;
+}
+
+/* ********** Flash Messages ***************/
+
+.flash_success {
+  background-color: #4caf50;
+  color: white;
+  width: 100%;
+  padding: 1rem;
+  z-index: 100;
+}
+
+.flash_error {
+  background-color: #f44336;
+  color: white;
+  width: 100%;
+  padding: 1rem;
+  z-index: 100;
+}
+
+.form_container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  margin-top: 2rem;
+  width: 400px;
+  box-sizing: border-box;
+}
+
+.fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-bottom: 1.5rem;
+}
+
+label {
+  font-weight: bold;
+}
+
+button {
+  cursor: pointer;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 1rem;
+  box-sizing: border-box;
+  color: #fff;
+  background: #2e2222;
+  margin-bottom: 2rem;
+}
+
+.navigation ul {
+  display: flex;
+  gap: 1rem;
+  text-decoration: none;
+}
+
+.navigation ul li {
+  list-style: none;
+}
+
+.sign a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.navigation ul li a {
+  text-decoration: none;
+  color: #fff;
+}
