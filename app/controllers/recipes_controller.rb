@@ -11,17 +11,18 @@ class RecipesController < ApplicationController
 
   def create
     name = params[:name]
-    cooking_time= params[:cooking_time]
+    cooking_time = params[:cooking_time]
     description = params[:description]
     preparation_time = params[:preparation_time]
     public = params[:public]
-    @recipe = Recipe.create(name: name, cooking_time: cooking_time, description: description, preparation_time: preparation_time, public: public)
+    @recipe = Recipe.create(name:, cooking_time:, description:,
+                            preparation_time:, public:)
     @recipe.user_id = current_user.id
     if @recipe.save
-      flash[:success] = "Successfully created..."
+      flash[:success] = 'Successfully created...'
       redirect_to recipes_path
     else
-      flash.now[:error] = "Recipe could not be created..."
+      flash.now[:error] = 'Recipe could not be created...'
     end
   end
 
