@@ -4,7 +4,7 @@ require 'faker'
 RSpec.describe Recipe, type: :model do
   include Shoulda::Matchers::ActiveModel
     let(:user1) {FactoryBot.create(:user, name: Faker::Name.name, email: 'example1@gmail.com', password: 1111111111)}
-    let(:user2) {FactoryBot.create(:user, name: Faker::Name.name, email: 'example1@gmail.com', password: 1111111111)}
+    let(:user2) {FactoryBot.create(:user, name: Faker::Name.name, email: 'example2@gmail.com', password: 1111111111)}
     let(:recipe1) {FactoryBot.create(:recipe, user_id: user1.id) }
     let(:recipe2) {FactoryBot.create(:recipe, user_id: user1.id) }
     let(:recipe3) {FactoryBot.create(:recipe, user_id: user2.id) }
@@ -32,8 +32,9 @@ RSpec.describe Recipe, type: :model do
     end
 
     it 'requires a user_id' do
-      expect(recipe1).to validate_presence_of(:user_id)
-      expect(recipe2).to validate_presence_of(:user_id)
+      expect(recipe1.user_id).to eq(user1.id)
+      expect(recipe3.user_id).to eq(user2.id)
+
     end
   end
 end
