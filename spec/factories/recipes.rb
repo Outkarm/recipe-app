@@ -1,10 +1,13 @@
+require 'faker'
+
 FactoryBot.define do
   factory :recipe do
-    name { 'my_string' }
-    preparation_time { 'my_string' }
-    cooking_time { 'my_string' }
-    description { 'my+text' }
-    public { false }
-    user { nil }
+    name { Faker::Food.dish  }
+    preparation_time { rand(1..15) }
+    cooking_time { rand(1..15) }
+    description { Faker::Food.description }
+    public { false  }
+    user { association(:user) }
   end
 end
+
