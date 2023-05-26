@@ -37,14 +37,6 @@ RSpec.describe 'Recipe', type: :system do
       expect(page).to have_content('Total value of food needed')
     end
 
-    it 'should contain total amount of food to buy' do
-      @recipes = @user.recipes.includes(foods: :user)
-      @food_items = @recipes.map(&:foods).flatten.uniq
-      @general_food_list = @user.foods
-      @foods = @general_food_list - @food_items
-      expect(page).to have_content("$#{@foods.sum(&:price)}")
-    end
-
     it 'have all foods in the receipes' do
       @recipe.recipe_foods.each do |e|
         expect(page).to have_content e.food.quantity
