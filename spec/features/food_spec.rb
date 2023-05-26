@@ -14,7 +14,6 @@ RSpec.describe 'food', type: :system do
       click_on 'Log in'
     end
 
-
     it 'should display the first food created by the user' do
       expect(page).to have_content 'beans'
     end
