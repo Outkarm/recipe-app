@@ -2,7 +2,7 @@ class FoodsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @food = Food.includes(:user).all
+    @food = Food.all
 
     return unless @food.empty?
 
