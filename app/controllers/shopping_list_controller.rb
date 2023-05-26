@@ -1,6 +1,6 @@
 class ShoppingListController < ApplicationController
   def index
-    @recipes = current_user.recipes
+    @recipes = current_user.recipes.includes(foods: :user)
     @food_items = @recipes.map(&:foods).flatten.uniq
     @general_food_list = current_user.foods
     @foods = @general_food_list - @food_items

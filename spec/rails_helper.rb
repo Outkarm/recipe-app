@@ -59,7 +59,6 @@ RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{Rails.root}/spec/fixtures"
 
-  config.include DeviseHelpers, type: :feature
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.
@@ -130,7 +129,7 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
 end
 
-# spec/rails_helper.rb (for RSpec)
-# test/test_helper.rb (for Minitest)
-
-# ...
+RSpec.configure do |config|
+  config.include(Shoulda::Matchers::ActiveModel, type: :model)
+  config.include(Shoulda::Matchers::ActiveRecord, type: :model)
+end
