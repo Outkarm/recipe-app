@@ -8,7 +8,7 @@
         <h2 class='recipe_name'><%= link_to recipe.name, recipe %></h2>
         <h2 class='recipe_name'><%= recipe.user.name%></h2>
           <% if can? :destroy, recipe %>
-            <%= button_to 'Remove', recipe_path(recipe.id),  method: :delete %>
+            <%= button_to "Remove #{recipe.name}", recipe_path(recipe.id), method: :delete  %>
           <% end %>
       </div>
       <p class='recipe_right'><%= recipe.description %></p>
