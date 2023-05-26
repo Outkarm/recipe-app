@@ -130,7 +130,7 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
 end
 
-RSpec.configure do |config|
-  config.include(Shoulda::Matchers::ActiveModel, type: :model)
-  config.include(Shoulda::Matchers::ActiveRecord, type: :model)
-end
+# spec/rails_helper.rb (for RSpec)
+# test/test_helper.rb (for Minitest)
+
+# ...

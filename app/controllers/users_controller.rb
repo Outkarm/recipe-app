@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
   def index
-    @users = User.includes(:recipes) # Eager loading recipes association
+    @user = User.all
   end
 
   def show
-    @user = User.includes(:recipes).find(params[:id]) # Eager loading recipes association
+    @user = User.find(params[:id])
   end
 end
