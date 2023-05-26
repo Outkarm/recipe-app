@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :recipe_food do
-    quantity { 1 }
-    recipe { nil }
-    food { nil }
+    quantity { rand(1..10) }
+    recipe { Recipe.first || association(:recipe) }
+    food { Food.first || association(:food) }
   end
 end
