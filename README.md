@@ -1,8 +1,6 @@
 <a name="readme-top"></a>
 
-<<<<<<< HEAD
 <div align="center">
-=======
 <!--
 HOW TO USE:
 This is an example of how you may give instructions on setting up your project locally.
@@ -10,6 +8,7 @@ This is an example of how you may give instructions on setting up your project l
 Modify this file to match your project and remove sections that don't apply.
 
 REQUIRED SECTIONS:
+
 - Table of Contents
 - About the Project
   - Built With
@@ -23,13 +22,13 @@ REQUIRED SECTIONS:
 - License
 
 OPTIONAL SECTIONS:
+
 - FAQ
 
 After you're finished please remove all the comments and instructions!
 -->
 
 <!-- TABLE OF CONTENTS -->
->>>>>>> 26b5516b62b8a554b237c6e3d1326518ba318822
 
 # 📗 Table of Contents
 
