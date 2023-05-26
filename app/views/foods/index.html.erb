@@ -1,5 +1,5 @@
 <div>
-  <button><%= link_to "Add Food", new_food_path %></button>
+  <button class='add-btn'><%= link_to "Add Food", new_food_path %></button>
   <table>
     <thead>
       <tr>
@@ -18,7 +18,7 @@
           <td>$<%= food.price %></td>
           <td><%= food.quantity %></td>
           <td>
-            <%= button_to "Delete", food_path(food), method: :delete, data: { confirm: "Are you sure?" } %>
+            <%= button_to "Delete #{food.name}", food_path(food), method: :delete, data: { confirm: "Are you sure?" } %>
           </td>
         </tr>
       <% end %>
