@@ -9,7 +9,6 @@ RSpec.describe Recipe, type: :model do
   let(:recipe2) { FactoryBot.create(:recipe, user_id: user1.id) }
   let(:recipe3) { FactoryBot.create(:recipe, user_id: user2.id) }
 
-
   describe 'Validations' do
     it 'requires a name' do
       expect(recipe1).to validate_presence_of(:name)
