@@ -1,0 +1,62 @@
+<main >
+  <section class='recipe_details_container' >
+  <h1 class='recipe_food_name'><%= @recipe.name %></h1>
+  <section class='recipe_details'>
+    <div class='recipe_detail_container'>
+      <p class='recipe_detail'>Preparation time: <%= @recipe.preparation_time %> </p>
+      <p class='recipe_detail'>Cooking time: <%= @recipe.cooking_time %> </p>
+      <p class='recipe_detail'>Steps goes here......</p>
+    </div>
+    <div class='recipe_detail'>
+      <div class=' recipe_detail_right'>
+        <p class='public'>public</p>:
+        <label class="toggle-switch">
+          <input type="checkbox" <%= @recipe.public ? "checked" : "" %>>
+          <span class="slider"></span>
+        </label>
+
+      </div>
+    </div>
+  </section>
+
+  <section class='section_two'>
+    <div class='btn_container'>
+      <button class='btn' id='generate_list'>
+       <%=link_to 'Generate Shopping List',shopping_list_index_path%>
+      </button>
+      <% if can? :manage, @recipe %>
+        <button class='btn'>
+        <%= link_to 'Add Ingredient', new_recipe_recipe_food_path(@recipe.id) %>
+        </button>
+      <% end %>
+    </div>
+  </section>
+
+  <section>
+    <table class='table'>
+      <thead>
+        <tr class='table_header'>
+          <th>Food</th>
+          <th>Quantity</th>
+          <th>Value</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @recipe.recipe_foods.each do |recipe_food| %>
+          <tr>
+            <td class=''><%= recipe_food.food.name %></td>
+            <td class=''><%= recipe_food.quantity %></td>
+            <td class=''><%= recipe_food.food.price %></td>
+            <td class='recipe_foods_actions'>
+              <% if can? :destroy, recipe_food.recipe %>
+                <%= link_to 'Modify', edit_recipe_recipe_food_path(recipe_food.id) %>
+                <%= button_to 'Remove', [@recipe, recipe_food], method: :delete %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+  </section>
+  </section>
+</main>

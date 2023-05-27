@@ -1,0 +1,27 @@
+<div>
+  <button class='add-btn'><%= link_to "Add Food", new_food_path %></button>
+  <table>
+    <thead>
+      <tr>
+        <th>Food</th>
+        <th>Measurement Unit</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @food.each do |food| %>
+        <tr>
+          <td><%= food.name %></td>
+          <td><%= food.measurement_unit %></td>
+          <td>$<%= food.price %></td>
+          <td><%= food.quantity %></td>
+          <td>
+            <%= button_to "Delete #{food.name}", food_path(food), method: :delete, data: { confirm: "Are you sure?" } %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

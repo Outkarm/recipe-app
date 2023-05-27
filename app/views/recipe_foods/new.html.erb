@@ -1,0 +1,17 @@
+<h2>Add a new Recipe Food</h2>
+<section class='form_container'>
+  <%= form_with(model: @recipe_food, url: recipe_recipe_foods_path, local: true, method: :post) do |form| %>
+    <div class='field' >
+      <%= form.label :quantity %><br>
+      <%= form.text_field :quantity, required: true %>
+    </div>
+
+    <div class='field'>
+      <%= form.label :food_id %><br>
+      <%= form.collection_select :food_id, Food.all, :id, :name, required: true %>
+    </div>
+
+    <div class='field'>
+      <%= form.submit %>
+    </div>
+<% end %>
