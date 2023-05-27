@@ -109,8 +109,6 @@ GEM
       railties (>= 5.0.0)
     faker (2.23.0)
       i18n (>= 1.8.11, < 2)
-    ffi (1.15.5)
-    ffi (1.15.5-x64-mingw-ucrt)
     globalid (1.1.0)
       activesupport (>= 5.0)
     i18n (1.13.0)
@@ -256,8 +254,6 @@ GEM
       parser (>= 3.2.1.0)
     ruby-progressbar (1.13.0)
     rubyzip (2.3.2)
-    sassc (2.4.0)
-      ffi (~> 1.9)
     selenium-webdriver (4.9.1)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
@@ -320,14 +316,13 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   letter_opener
-  pg (~> 1.1)
+  pg (~> 1.5, >= 1.5.3)
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.3)
   rails-controller-testing
   rspec-rails (~> 5.0.0)
   rswag
   rubocop (>= 1.0, < 2.0)
-  sassc
   selenium-webdriver
   shoulda-matchers
   sprockets-rails
