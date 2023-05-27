@@ -16,14 +16,13 @@
         </label>
 
       </div>
-      <%= @recipe.public%>
     </div>
   </section>
 
   <section class='section_two'>
     <div class='btn_container'>
-      <button class='btn'>
-        Generate Shopping List
+      <button class='btn' id='generate_list'>
+       <%=link_to 'Generate Shopping List',shopping_list_index_path%>
       </button>
       <% if can? :manage, @recipe %>
         <button class='btn'>
