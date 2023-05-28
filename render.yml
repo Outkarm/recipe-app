@@ -1,7 +1,7 @@
 databases:
   - name: recipe
-    databaseName: recipe
-    user: recipe
+    databaseName: recipe_57rr
+    user: outkarm
 
 services:
   - type: web
