@@ -1,6 +1,6 @@
 databases:
-  - name: recipe
-    databaseName: recipe_57rr
+  - name: KoyOutkarmBudget
+    databaseName: budgetapp_50qs
     user: outkarm
 
 services:
@@ -12,7 +12,7 @@ services:
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: recipe
+          name: budgetapp_50qs
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
